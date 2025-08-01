@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import sql from "../configs/db.js";
+import { sql } from "../configs/db.js";
 import { clerkClient } from "@clerk/express";
 import { useId } from "react";
 import axios from 'axios'
