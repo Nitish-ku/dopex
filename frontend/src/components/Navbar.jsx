@@ -9,7 +9,7 @@ const Navbar = () => {
     const {user} = useUser(); 
     const {openSignIn} = useClerk();
   return (
-    <div className='fixed z-5 w-full backdrop-blur-2xl flex justify-between 
+    <div className='fixed z-50 w-full backdrop-blur-2xl flex justify-between 
     items-center py-3 px-4 sm:px-20 xl:px-32'>
         <img src={assets.logo} alt='logo' className='w-80 h-auto sm:w-40 cursor-pointer' onClick={()=>navigate('/')}/>
 

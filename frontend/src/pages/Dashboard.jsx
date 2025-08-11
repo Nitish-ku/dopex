@@ -39,6 +39,16 @@ const Dashboard = () => {
 
   useEffect(()=>{
     getDashboardData();
+
+    const handleCreationGenerated = () => {
+      getDashboardData();
+    };
+
+    window.addEventListener('creation-generated', handleCreationGenerated);
+
+    return () => {
+      window.removeEventListener('creation-generated', handleCreationGenerated);
+    };
   },[])
   
 

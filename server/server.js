@@ -2,18 +2,17 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { sql } from './configs/db.js'; 
-import {clerkMiddleware, requireAuth} from '@clerk/express';
+import { clerkMiddleware, requireAuth } from '@clerk/express';
 import aiRouter from './routes/aiRoutes.js';
 import connectCloudinary from './configs/cloudinary.js';
 import userRouter from './routes/userRoutes.js';
+import chatRouter from './routes/chatRoute.js';
 
 const app = express();
 
 await connectCloudinary();
 
 dotenv.config();
-
-app.use(clerkMiddleware());
 
 app.use(cors());
 app.use(express.json());
@@ -22,8 +21,10 @@ app.get('/', (req, res) => {
   res.send('Server is Live!!!!!!!!!!');
 } );
 
+app.use(clerkMiddleware());
 app.use(requireAuth());
 
+app.use(chatRouter);
 app.use('/api/ai', aiRouter);
 app.use('/api/user', userRouter);
 

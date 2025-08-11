@@ -5,7 +5,7 @@ import star_icon from "./star_icon.svg";
 import star_dull_icon from "./star_dull_icon.svg";
 import profile_img_1 from "./profile_img_1.png";
 import arrow_icon from "./arrow_icon.svg";
-import { SquarePen, Hash, Image, Eraser, Scissors, FileText } from 'lucide-react'
+import { SquarePen, Hash, Image, Eraser, Scissors, FileText, Book, BookOpen, Mic, Dumbbell } from 'lucide-react'
 import ai_gen_img_1 from "./ai_gen_img_1.png";
 import ai_gen_img_2 from "./ai_gen_img_2.png";
 import ai_gen_img_3 from "./ai_gen_img_3.png";
@@ -29,11 +29,11 @@ export const AiToolsData = [
     path: '/ai/write-article'
   },
   {
-    title: 'Title Me This',
-    description: 'Catchy AF blog titles in one click. Say goodbye to boring clickbait that nobody wants to read.',
-    Icon: Hash,
-    bg: { from: '#B153EA', to: '#E549A3' },
-    path: '/ai/blog-titles'
+    title: 'Bhagavad Gita',
+    description: 'Get a random verse from the Bhagavad Gita.',
+    Icon: Book,
+    bg: { from: '#F76C1C', to: '#F04A3C' },
+    path: '/ai/bhagavad-gita'
   },
   {
     title: 'AI Picasso',
@@ -50,11 +50,11 @@ export const AiToolsData = [
     path: '/ai/remove-background'
   },
   {
-    title: 'Delete That',
-    description: 'Remove that weird guy in the back. Or anything, really.',
-    Icon: Scissors,
+    title: 'Get Book Information',
+    description: 'Search for a book and get all the information about it.',
+    Icon: BookOpen,
     bg: { from: '#5C6AF1', to: '#427DF5' },
-    path: '/ai/remove-object'
+    path: '/ai/get-book-information'
   },
   {
     title: 'The Resume Fixer',
@@ -62,6 +62,20 @@ export const AiToolsData = [
     Icon: FileText,
     bg: { from: '#12B7AC', to: '#08B6CE' },
     path: '/ai/review-resume'
+  },
+  {
+    title: 'Get Lyrics',
+    description: 'Search for lyrics by song title and artist.',
+    Icon: Mic,
+    bg: { from: '#FF61C5', to: '#9E53EE' },
+    path: '/ai/get-lyrics'
+  },
+  {
+    title: 'Workout Quote',
+    description: 'Generate a motivational workout quote.',
+    Icon: Dumbbell,
+    bg: { from: '#F76C1C', to: '#F04A3C' },
+    path: '/ai/generate-workout-quote'
   }
 ]
 

@@ -1,13 +1,14 @@
-import { clerkClient } from "@clerk/express";
+import { clerkClient } from "@clerk/clerk-sdk-node";
 
 // middleware to check userId and hasPremiumPlan
 
 export const auth = async ( req, res, next )=>{
     try {
-        const { userId, has } = await req.auth();
-        const hasPremiumPlan = await has({plan:'premium'});
-
+        const { userId } = req.auth;
         const user = await clerkClient.users.getUser(userId);
+
+        const hasPremiumPlan = user.privateMetadata.plan === 'premium';
+
 
         if (!hasPremiumPlan && user.privateMetadata.free_usage) {
             req.free_usage = user.privateMetadata.free_usage

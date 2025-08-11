@@ -1,5 +1,5 @@
 import { Protect, useClerk, useUser } from '@clerk/clerk-react'
-import { Eraser, FileText, Hash, House, Image, LogOut, Scissors, SquarePen, Users } from 'lucide-react';
+import { BookText, Eraser, FileText, Hash, House, Image, LogOut, Scissors, SquarePen, Users, BookOpen, Mic, Dumbbell } from 'lucide-react';
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 
@@ -7,12 +7,15 @@ import { NavLink } from 'react-router-dom';
 const navItems = [
     {to: '/ai', lable: 'Dashboard', Icon: House},
     {to: '/ai/write-article', lable: 'Write Article', Icon: SquarePen},
-    {to: '/ai/blog-titles', lable: 'Blog Titles', Icon: Hash},
+    {to: '/ai/bhagavad-gita', lable: 'Bhagavad Gita', Icon: BookText},
+    
     {to: '/ai/generate-images', lable: 'Generate Images', Icon: Image},
     {to: '/ai/remove-background', lable: 'Remove Background', Icon: Eraser},
-    {to: '/ai/remove-object', lable: 'Remove Object', Icon: Scissors},
+    {to: '/ai/get-book-information', lable: 'Get Book Information', Icon: BookOpen},
     {to: '/ai/review-resume', lable: 'Review Resume', Icon: FileText},
     {to: '/ai/community', lable: 'Community', Icon: Users},
+    {to: '/ai/get-lyrics', lable: 'Get Lyrics', Icon: Mic},
+    {to: '/ai/generate-workout-quote', lable: 'Workout Quote', Icon: Dumbbell},
 ]
 
 const Sidebar = ({sidebar, setSidebar}) => {
@@ -23,7 +26,7 @@ const Sidebar = ({sidebar, setSidebar}) => {
 
 
   return (
-    <div className={`w-60 bg-white border-r border-gray-200 flex flex-col justify-between items-center max-sm:absolute top-14 bottom-0 ${sidebar ? 'translate-x-0' : 'max-sm:-translate-x-full'} transition-all duration-300 ease-in-out`}> 
+    <div className={`w-60 bg-white border-r border-gray-200 flex flex-col justify-between items-center max-sm:absolute top-[60px] bottom-0 ${sidebar ? 'translate-x-0' : 'max-sm:-translate-x-full'} transition-all duration-300 ease-in-out`}> 
     <div className='my-7 w-full'>
         <img src={user.imageUrl} alt="User avatar" className='w-13 rounded-full mx-auto'/>
         <h1 className='mt-1 text-center'>{user.fullName}</h1>
