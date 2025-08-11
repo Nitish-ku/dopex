@@ -17,6 +17,7 @@ import DopeXChat from './pages/DopeXChat'
 import BhagavadGita from './pages/BhagavadGita'
 import GetLyrics from './pages/GetLyrics'
 import GenerateWorkoutQuote from './pages/GenerateWorkoutQuote'
+import GetWordInfo from './pages/GetWordInfo'
 
 
 
@@ -39,6 +40,7 @@ const App = () => {
         <Route path='community' element={<Community/>}/>
         <Route path='get-lyrics' element={<GetLyrics/>}/>
         <Route path='generate-workout-quote' element={<GenerateWorkoutQuote/>}/>
+        <Route path='get-word-info' element={<GetWordInfo/>}/>
 
         </Route>
       </Routes>

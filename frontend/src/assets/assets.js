@@ -43,11 +43,11 @@ export const AiToolsData = [
     path: '/ai/generate-images'
   },
   {
-    title: 'No Background? No Problem.',
-    description: 'Zap backgrounds from your pics in seconds. Clean, crisp, pro look.',
-    Icon: Eraser,
+    title: 'Get Meaning and Pronunciation',
+    description: 'Get the meaning and pronunciation of any word.',
+    Icon: BookOpen,
     bg: { from: '#F76C1C', to: '#F04A3C' },
-    path: '/ai/remove-background'
+    path: '/ai/get-word-info'
   },
   {
     title: 'Get Book Information',

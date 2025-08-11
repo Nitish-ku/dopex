@@ -1,5 +1,5 @@
 import { Protect, useClerk, useUser } from '@clerk/clerk-react'
-import { BookText, Eraser, FileText, Hash, House, Image, LogOut, Scissors, SquarePen, Users, BookOpen, Mic, Dumbbell } from 'lucide-react';
+import { BookText, FileText, Hash, House, Image, LogOut, Scissors, SquarePen, Users, BookOpen, Mic, Dumbbell } from 'lucide-react';
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 
@@ -10,8 +10,8 @@ const navItems = [
     {to: '/ai/bhagavad-gita', lable: 'Bhagavad Gita', Icon: BookText},
     
     {to: '/ai/generate-images', lable: 'Generate Images', Icon: Image},
-    {to: '/ai/remove-background', lable: 'Remove Background', Icon: Eraser},
     {to: '/ai/get-book-information', lable: 'Get Book Information', Icon: BookOpen},
+    {to: '/ai/get-word-info', lable: 'Word Info', Icon: BookOpen},
     {to: '/ai/review-resume', lable: 'Review Resume', Icon: FileText},
     {to: '/ai/community', lable: 'Community', Icon: Users},
     {to: '/ai/get-lyrics', lable: 'Get Lyrics', Icon: Mic},
