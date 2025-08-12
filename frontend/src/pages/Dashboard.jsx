@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import cn from 'classnames';
 import { dummyCreationData } from '../assets/assets';
 import { Gem, Sparkle } from 'lucide-react';
 import { Protect, useAuth } from '@clerk/clerk-react'
@@ -53,12 +54,16 @@ const Dashboard = () => {
   
 
   return (
-    <div className='h-full overflow-y-scroll p-6'>
+    <div className='min-h-screen flex flex-col items-center justify-start bg-[#0b0f14] p-6 text-white'>
+      <div className={cn(
+        'absolute inset-0 -z-10 transition-all duration-700',
+        'bg-gradient-to-br from-[#0f0c2f] via-[#0b0f14] to-[#05030a]'
+      )} />
       <div className='flex justify-start gap-4 flex-wrap'>
 
         {/* Total Creations card */}
-        <div className='flex justify-between itmes-center w-72 p-4 px-6 bg-white rounded-xl border border-gray-200'>
-          <div className='text-slate-600'>
+        <div className='flex justify-between itmes-center w-72 p-4 px-6 bg-gradient-to-br from-[#111827] to-[#0b1220] rounded-xl border border-gray-800'>
+          <div className='text-gray-300'>
 
             <p className='text-sm'>Total Creations</p>
             <h2 className='text-xl font-semibold'>{creations.length}</h2>
@@ -70,8 +75,8 @@ const Dashboard = () => {
         </div>
 
         {/* Active plan card */}
-        <div className='flex justify-between itmes-center w-72 p-4 px-6 bg-white rounded-xl border border-gray-200'>
-          <div className='text-slate-600'>
+        <div className='flex justify-between itmes-center w-72 p-4 px-6 bg-gradient-to-br from-[#111827] to-[#0b1220] rounded-xl border border-gray-800'>
+          <div className='text-gray-300'>
 
             <p className='text-sm'>Active Plan</p>
             <h2 className='text-xl font-semibold'>

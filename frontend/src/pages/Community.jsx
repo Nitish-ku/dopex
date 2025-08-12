@@ -1,5 +1,6 @@
 import { useAuth, useUser } from '@clerk/clerk-react';
 import React, { useEffect, useState } from 'react'
+import cn from 'classnames';
 import { dummyPublishedCreationData } from '../assets/assets';
 import { Heart } from 'lucide-react';
 import axios from 'axios';
@@ -64,9 +65,13 @@ const Community = () => {
 
 
   return !loading ?  (
-    <div className='flex-1 h-full flex flex-col gap-4 p-6'>
+    <div className='min-h-screen flex flex-col items-center justify-start bg-[#0b0f14] p-6 text-white'>
+      <div className={cn(
+        'absolute inset-0 -z-10 transition-all duration-700',
+        'bg-gradient-to-br from-[#0f0c2f] via-[#0b0f14] to-[#05030a]'
+      )} />
       Creations
-      <div className='bg-white h-full w-full rounded-xl overflow-y-scroll'>
+      <div className='bg-gradient-to-br from-[#111827] to-[#0b1220] h-full w-full rounded-xl overflow-y-scroll border border-gray-800'>
 
         {creations.map((creation, index) => (
           <div key={index} className='relative group inline-block pl-3 pt-3 w-full sm:max-w-1/2 lg:max-w-1/3'>
@@ -91,7 +96,7 @@ const Community = () => {
     </div>
   ) : (
     <div className='flex justify-center items-center h-full'>
-      <span className='w-10 h-10 my-1 rounded-full border-3 border-[color:var(--color-primary)] border-t-transparent animate-spin'></span>
+      <span className='w-10 h-10 my-1 rounded-full border-3 border-purple-500 border-t-transparent animate-spin'></span>
     </div>
   )
 }
