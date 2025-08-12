@@ -205,7 +205,7 @@ export const getBhagavadGitaQuote = async (req, res) => {
         // First, get the list of chapters
         const chaptersResponse = await axios.get('https://bhagavad-gita3.p.rapidapi.com/v2/chapters/', {
             headers: {
-                'x-rapidapi-key': process.env['X-RAPIDAPI-kEY'],
+                'x-rapidapi-key': process.env['X_RAPID_API'],
                 'x-rapidapi-host': 'bhagavad-gita3.p.rapidapi.com'
             }
         });
@@ -223,7 +223,7 @@ export const getBhagavadGitaQuote = async (req, res) => {
         // Fetch the randomly selected verse
         const verseResponse = await axios.get(`https://bhagavad-gita3.p.rapidapi.com/v2/chapters/${chapterNumber}/verses/${randomVerseNumber}/`, {
             headers: {
-                'x-rapidapi-key': process.env['X-RAPIDAPI-kEY'],
+                'x-rapidapi-key': process.env['X_RAPID_API'],
                 'x-rapidapi-host': 'bhagavad-gita3.p.rapidapi.com'
             }
         });
