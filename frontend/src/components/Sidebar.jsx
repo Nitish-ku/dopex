@@ -13,9 +13,9 @@ const navItems = [
     {to: '/ai/get-book-information', lable: 'Get Book Information', Icon: BookOpen},
     {to: '/ai/get-word-info', lable: 'Word Info', Icon: BookOpen},
     {to: '/ai/review-resume', lable: 'Review Resume', Icon: FileText},
-    {to: '/ai/community', lable: 'Community', Icon: Users},
     {to: '/ai/get-lyrics', lable: 'Get Lyrics', Icon: Mic},
     {to: '/ai/generate-workout-quote', lable: 'Workout Quote', Icon: Dumbbell},
+    {to: '/ai/community', lable: 'Community', Icon: Users},
 ]
 
 const Sidebar = ({sidebar, setSidebar}) => {

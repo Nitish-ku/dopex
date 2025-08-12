@@ -24,8 +24,8 @@ const testimonials = [
 const Testimonials = () => {
   return (
     <>
-    <h1 className="text-center text-4xl font-bold text-gray-900">They Tried It. They Loved It.</h1>
-<p className="text-center text-gray-500 mt-1">
+    <h1 className="text-center text-4xl font-bold text-white">They Tried It. They Loved It.</h1>
+<p className="text-center text-gray-300 mt-1">
   We didn’t bribe them. They just vibed with dopeX. Real words from real people.
 </p>
 
