@@ -34,7 +34,7 @@ const GetWordInfo = () => {
                 <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-black/40 to-white/2">
                     <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#111827] to-[#0b1220] flex items-center justify-center border border-neutral-800">
-                            <div className="text-white font-extrabold">WI</div>
+                            <div className="text-white font-extrabold">dopeX</div>
                         </div>
                         <div>
                             <div className="text-white font-semibold">Word Info</div>

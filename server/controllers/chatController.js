@@ -42,7 +42,9 @@ When responding, maintain your witty, humorous, and slightly arrogant tone. Inco
         // loop over the stream and send each chunk to the client 
         for await ( const chunk of completionStream){
             // the data needs to be in a specific "data:...\n\n" format
-            res.write(`data: ${JSON.stringify(chunk)}\n\n`)
+            res.write(`data: ${JSON.stringify(chunk)}
+
+`)
         }
         // end the response when the stream is done 
         res.send();

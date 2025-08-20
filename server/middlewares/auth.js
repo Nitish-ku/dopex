@@ -4,26 +4,8 @@ import { clerkClient } from "@clerk/clerk-sdk-node";
 
 export const auth = async ( req, res, next )=>{
     try {
-        const { userId } = req.auth;
-        const user = await clerkClient.users.getUser(userId);
-
-        const hasPremiumPlan = user.privateMetadata.plan === 'premium';
-
-
-        if (!hasPremiumPlan && user.privateMetadata.free_usage) {
-            req.free_usage = user.privateMetadata.free_usage
-            
-        }else{
-            await clerkClient.users.updateUserMetadata(userId, { 
-                privateMetadata: {
-                    free_usage : 0
-                }
-            })
-
-            req.free_usage = 0;
-        }
-
-        req.plan = hasPremiumPlan ? 'premium' : 'free';
+        // All users are considered premium.
+        req.plan = 'premium';
         next()
 
     } catch (error) {

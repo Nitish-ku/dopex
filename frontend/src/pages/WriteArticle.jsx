@@ -1,10 +1,10 @@
 import { Edit, Sparkles } from 'lucide-react'
 import React, { useState } from 'react'
-import cn from 'classnames';
+import cn from 'classnames'
 import axios from 'axios'
-import { useAuth } from '@clerk/clerk-react';
-import toast from 'react-hot-toast';
-import Markdown from 'react-markdown';
+import { useAuth } from '@clerk/clerk-react'
+import toast from 'react-hot-toast'
+import Markdown from 'react-markdown'
 
 
 
@@ -64,7 +64,9 @@ const WriteArticle = () => {
       <form onSubmit={onSubmitHandler} className='w-full max-w-lg p-4 bg-gradient-to-br from-[#111827] to-[#0b1220] rounded-lg border border-gray-800'>
 
         <div className='flex items-center gap-3'>
-          <Sparkles className='w-6 text-[#4A7AFF]'/>
+          <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#111827] to-[#0b1220] flex items-center justify-center border border-neutral-800">
+            <div className="text-white font-extrabold">dopeX</div>
+          </div>
           <h1 className='text-xl font-semibold'>Article Configuration</h1>
         </div>
 
