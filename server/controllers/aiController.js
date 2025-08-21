@@ -6,7 +6,7 @@ import axios from 'axios'
 import { v2 as cloudinary } from "cloudinary";
 import fs from 'fs';
 import pdf from 'pdf-parse/lib/pdf-parse.js' 
-import cheerio from 'cheerio'; 
+import * as cheerio from 'cheerio'; 
 
 const AI = new OpenAI({
     apiKey: process.env.GEMINI_API_KEY,
