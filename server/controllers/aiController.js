@@ -6,7 +6,7 @@ import axios from 'axios'
 import { v2 as cloudinary } from "cloudinary";
 import fs from 'fs';
 import pdf from 'pdf-parse/lib/pdf-parse.js' 
-import * as cheerio from 'cheerio'; 
+ 
 
 const AI = new OpenAI({
     apiKey: process.env.GEMINI_API_KEY,
@@ -280,55 +280,32 @@ export const getLyrics = async (req, res) => {
         const { songTitle, artist } = req.body;
         const { userId } = req.auth();
 
-        console.log(`Searching for lyrics: ${songTitle} by ${artist}`);
+        console.log(`Searching for lyrics: ${songTitle} by ${artist} using Lyrics.ovh`);
 
-        // Step 1: Search Genius for the song
-        const searchUrl = `https://api.genius.com/search?q=${encodeURIComponent(songTitle)} ${encodeURIComponent(artist)}`;
-        const searchResponse = await axios.get(searchUrl, {
-            headers: { Authorization: `Bearer ${process.env.GENIUS_ACCESS_TOKEN}` },
-        });
+        const lyricsApiUrl = `https://api.lyrics.ovh/v1/${encodeURIComponent(artist)}/${encodeURIComponent(songTitle)}`;
+        const response = await axios.get(lyricsApiUrl);
 
-        const songId = searchResponse.data.response.hits[0]?.result?.id;
-        if (!songId) {
-            return res.status(404).json({ success: false, message: 'Song not found.' });
+        if (response.data && response.data.lyrics) {
+            const lyrics = response.data.lyrics;
+
+            const prompt = `Lyrics for "${songTitle}" by ${artist}`;
+            await sql`
+                INSERT INTO creations (user_id, prompt, content, type)
+                VALUES (${userId}, ${prompt}, ${lyrics}, 'lyrics')
+            `;
+
+            res.json({ success: true, lyrics });
+        } else {
+            res.status(404).json({ success: false, message: 'Lyrics not found for this song and artist.' });
         }
-
-        // Step 2: Get song details
-        const songResponse = await axios.get(`https://api.genius.com/songs/${songId}`, {
-            headers: { Authorization: `Bearer ${process.env.GENIUS_ACCESS_TOKEN}` },
-        });
-
-        const lyricsUrl = songResponse.data.response.song.url;
-
-        // Step 3: Scrape lyrics page
-        const { data: html } = await axios.get(lyricsUrl);
-        const $ = cheerio.load(html);
-
-        // Replace <br> with \n and <p>/<div> with \n\n before extracting text
-        $('br').replaceWith('\n');
-        $('p, div').each((_, el) => {
-            const tagName = $(el)[0].tagName.toLowerCase();
-            if (tagName === 'p' || tagName === 'div') {
-                $(el).append('\n');
-            }
-        });
-
-        // Now get the text
-        let lyrics = $('div[data-lyrics-container="true"]').text();
-
-        // Clean up excessive newlines
-        lyrics = lyrics.replace(/\n{3,}/g, '\n\n').trim();
-
-        const prompt = `Lyrics for "${songTitle}" by ${artist}`;
-        await sql`
-            INSERT INTO creations (user_id, prompt, content, type)
-            VALUES (${userId}, ${prompt}, ${lyrics}, 'lyrics')
-        `;
-
-        res.json({ success: true, lyrics });
     } catch (error) {
         console.error('Failed to fetch lyrics:', error);
-        res.status(500).json({ success: false, message: error.message });
+        // Check if it's a 404 from Lyrics.ovh (e.g., song not found)
+        if (error.response && error.response.status === 404) {
+            res.status(404).json({ success: false, message: 'Lyrics not found for this song and artist.' });
+        } else {
+            res.status(500).json({ success: false, message: error.message || 'Error fetching lyrics.' });
+        }
     }
 };
 
