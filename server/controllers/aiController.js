@@ -6,6 +6,7 @@ import axios from 'axios'
 import { v2 as cloudinary } from "cloudinary";
 import fs from 'fs';
 import pdf from 'pdf-parse/lib/pdf-parse.js' 
+import cheerio from 'cheerio'; 
 
 const AI = new OpenAI({
     apiKey: process.env.GEMINI_API_KEY,
@@ -291,7 +292,6 @@ export const getLyrics = async (req, res) => {
 
         // Step 3: Scrape lyrics page
         const { data: html } = await axios.get(lyricsUrl);
-        const cheerio = await import('cheerio');
         const $ = cheerio.load(html);
 
         // Replace <br> with \n and <p>/<div> with \n\n before extracting text
