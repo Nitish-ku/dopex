@@ -12,7 +12,7 @@ const app = express();
 
 await connectCloudinary();
 
-dotenv.config();
+
 
 app.use(cors());
 app.use(express.json());

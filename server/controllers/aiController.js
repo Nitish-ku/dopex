@@ -253,10 +253,20 @@ export const getBookInformation = async (req, res) => {
 
         const bookData = response.data.items[0].volumeInfo;
 
+        // Fix mixed content issue by forcing HTTPS on image links
+        if (bookData.imageLinks) {
+            if (bookData.imageLinks.thumbnail) {
+                bookData.imageLinks.thumbnail = bookData.imageLinks.thumbnail.replace('http://', 'https://');
+            }
+            if (bookData.imageLinks.smallThumbnail) {
+                bookData.imageLinks.smallThumbnail = bookData.imageLinks.smallThumbnail.replace('http://', 'https://');
+            }
+        }
+
         const prompt = `Book information for "${title}"`;
         const content = JSON.stringify(bookData);
 
-        await sql` INSERT INTO creations (user_id, prompt, content, type) VALUES (${userId}, ${prompt}, ${content}, 'book-information')`;
+        await sql`INSERT INTO creations (user_id, prompt, content, type) VALUES (${userId}, ${prompt}, ${content}, 'book-information')`;
 
         res.json({ success: true, bookData });
     } catch (error) {
