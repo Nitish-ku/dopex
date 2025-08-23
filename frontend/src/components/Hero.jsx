@@ -17,11 +17,11 @@ const Hero = () => {
             design, and ideate so you can create faster, better, and bolder.</p>
         </div>
         <div className='flex flex-wrap justify-center gap-4 text-sm max-sm:text-xs'>
-            <button onClick={()=> navigate('/ai')} className='bg-gradient-to-br from-[#7c3aed] to-[#00f5d4] text-black px-10 py-3 rounded-lg hover:scale-102 
-            active:scale-95 transition cursor-pointer'>Start Creating Now</button>
-            <button onClick={()=> navigate('/chat')} className='bg-gradient-to-br from-[#111827] to-[#0b1220] text-white px-10 py-3 rounded-lg border border-gray-800 
+            <button onClick={()=> navigate('/ai')} className='bg-gradient-to-br from-[#7c3aed] to-[#00f5d4] text-black px-6 py-3 rounded-lg hover:scale-102 
+            active:scale-95 transition cursor-pointer sm:px-10'>Start Creating Now</button>
+            <button onClick={()=> navigate('/chat')} className='bg-gradient-to-br from-[#111827] to-[#0b1220] text-white px-6 py-3 rounded-lg border border-gray-800 
             hover:scale-102 
-            active:scale-95 transition cursor-pointer'>Say Hi to dopeX</button>
+            active:scale-95 transition cursor-pointer sm:px-10'>Say Hi to dopeX</button>
         </div>
         <div className='flex items-center gap-4 mt-8 mx-auto text-gray-300'>
             <Gem className='w-4 h-4'/> dopeX isn’t mainstream yet. That’s your advantage
