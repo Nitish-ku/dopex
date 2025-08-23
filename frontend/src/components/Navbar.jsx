@@ -11,14 +11,14 @@ const Navbar = () => {
   return (
     <div className='fixed z-50 w-full backdrop-blur-2xl flex justify-between 
     items-center py-3 px-4 sm:px-20 xl:px-32 bg-[#0b0f14]'>
-        <img src={assets.logo} alt='logo' className='w-80 h-auto sm:w-40 cursor-pointer' onClick={()=>navigate('/')}/>
+        <img src={assets.logo} alt='logo' className='w-32 h-auto sm:w-40 cursor-pointer' onClick={()=>navigate('/')}/>
 
         {
           user ? <UserButton/> 
           : 
           (
             <button onClick={openSignIn} className='flex items-center gap-2 rounded-full text-sm
-        cursor-pointer bg-gradient-to-br from-[#7c3aed] to-[#00f5d4] text-black px-10 py-2.5'>Cook with AI <ArrowRight className='w-4 h-4'/></button> 
+        cursor-pointer bg-gradient-to-br from-[#7c3aed] to-[#00f5d4] text-black px-4 py-2.5 sm:px-10'>Cook with AI <ArrowRight className='w-4 h-4'/></button> 
           )
         }
         
