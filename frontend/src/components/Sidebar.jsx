@@ -26,7 +26,7 @@ const Sidebar = ({sidebar, setSidebar}) => {
 
 
   return (
-    <div className={`w-60 bg-[#0b0f14] border-r border-gray-800 flex flex-col justify-between items-center max-sm:absolute top-[60px] bottom-0 ${sidebar ? 'translate-x-0' : 'max-sm:-translate-x-full'} transition-all duration-300 ease-in-out`}> 
+    <div className={`w-60 bg-[#0b0f14] border-r border-gray-800 flex-col justify-between items-center absolute top-[60px] bottom-0 ${sidebar ? 'translate-x-0' : '-translate-x-full'} transition-all duration-300 ease-in-out lg:relative lg:translate-x-0 lg:flex`}> 
     <div className='my-7 w-full'>
         <img src={user.imageUrl} alt="User avatar" className='w-13 rounded-full mx-auto'/>
         <h1 className='mt-1 text-center text-white'>{user.fullName}</h1>
