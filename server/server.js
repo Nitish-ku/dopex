@@ -20,8 +20,8 @@ app.use(cors({
 }));
 app.use(express.json());
 
-app.use(clerkMiddleware());
-app.use(requireAuth());
+// app.use(clerkMiddleware());
+// app.use(requireAuth());
 
 app.use(chatRouter);
 app.use('/api/ai', aiRouter);
