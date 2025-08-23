@@ -15,8 +15,8 @@ const Layout = () => {
       border-b border-gray-800 bg-[#0b0f14]'>
         <img className='cursor-pointer w-32 sm:w-44' src={assets.logo} alt='logo' onClick={()=>navigate('/')} />
         {
-                    {sidebar ? <X onClick={()=> setSidebar(false)} className='w-6 h-6 text-gray-300 lg:hidden'/>
-          : <Menu onClick={()=> setSidebar(true)} className='w-6 h-6 text-gray-300 lg:hidden'/>}
+          sidebar ? <X onClick={()=> setSidebar(false)} className='w-6 h-6 text-gray-300 lg:hidden'/>
+          : <Menu onClick={()=> setSidebar(true)} className='w-6 h-6 text-gray-300 lg:hidden'/>
         }
       </nav>
       <div className='flex-1 w-full flex h-[calc(100vh-64px)]'>
