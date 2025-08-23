@@ -1,26 +1,22 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 100 40"
+  viewBox="0 0 120 40"
   fill="none"
 >
   <text
     x="0"
     y="28"
-    fontFamily="Segoe UI, Roboto, sans-serif"
-    fontSize="28"
+    font-family="Segoe UI, Roboto, sans-serif"
+    font-size="28"
+    font-weight="600"
     fill="#88888bff"
-    fontWeight="600"
   >
     dope
-  </text>
-  <text
-    x="30"
-    y="28"
-    fontFamily="Segoe UI, Roboto, sans-serif"
-    fontSize="28"
-    fill="#cc6699"
-    fontWeight="800"
-  >
-    X
+    <tspan
+      fill="#cc6699"
+      font-weight="800"
+    >
+      X
+    </tspan>
   </text>
 </svg>
