@@ -21,7 +21,7 @@ const Layout = () => {
       </nav>
       <div className='flex-1 w-full flex h-[calc(100vh-64px)]'>
         <Sidebar sidebar={sidebar} setSidebar={setSidebar}/>
-        <div className='flex-1 bg-[#0b0f14] overflow-y-auto'>
+        <div className={`flex-1 bg-[#0b0f14] overflow-y-auto ${sidebar ? 'max-lg:hidden' : ''}`}>
           <Outlet />
         </div>
       </div>
