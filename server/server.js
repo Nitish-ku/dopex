@@ -20,16 +20,16 @@ app.use(cors({
 }));
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Server is Live!!!!!!!!!!');
-} );
-
 app.use(clerkMiddleware());
 app.use(requireAuth());
 
 app.use(chatRouter);
 app.use('/api/ai', aiRouter);
 app.use('/api/user', userRouter);
+
+app.get('/', (req, res) => {
+  res.send('Server is Live!!!!!!!!!!');
+} );
 
 const PORT = process.env.PORT || 3000;
 
