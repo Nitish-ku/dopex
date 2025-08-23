@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
 import { Toaster, toast } from 'react-hot-toast';
+import axios from 'axios';
+import { useAuth } from '@clerk/clerk-react';
 
 export default function BhagavadGita() {
   const [quote, setQuote] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [accent, setAccent] = useState('purple'); // 'purple' | 'cyan' | 'orange'
+  const { getToken } = useAuth();
 
   async function getQuote() {
     setIsLoading(true);
     try {
-      const response = await fetch("/api/ai/bhagavad-gita");
-
-      if (!response.ok) {
-        throw new Error('Failed to fetch quote');
-      }
-
-      const data = await response.json();
+      const { data } = await axios.get("/api/ai/bhagavad-gita", {
+        headers: { Authorization: `Bearer ${await getToken()}` }
+      });
       setQuote(data);
       window.dispatchEvent(new CustomEvent('creation-generated'));
     } catch (error) {
