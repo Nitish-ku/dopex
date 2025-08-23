@@ -44,19 +44,15 @@ export default function DopeXChat() {
     abortControllerRef.current = new AbortController();
 
     try {
-      const response = await fetch('/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${await getToken()}`
-        },
-        body: JSON.stringify({ message: messageText }),
-        signal: abortControllerRef.current.signal
-      });
-
-      if (!response.ok || !response.body) {
-        throw new Error('No response body');
-      }
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/chat`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${await getToken()}`
+  },
+  body: JSON.stringify({ message: messageText }),
+  signal: abortControllerRef.current.signal
+});
 
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
