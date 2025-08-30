@@ -45,7 +45,7 @@ The project leverages a modern, powerful tech stack for optimal performance and 
 | **Storage**   | `Cloudinary` (for cloud-based image and media management)                    |
 | **DevOps**    | `Git`, `Render` (for deployment), `ESLint`                                   |
 
-## 🏁 Getting Started
+## Getting Started
 
 Follow these instructions to set up and run the project on your local machine.
 
@@ -143,7 +143,7 @@ The frontend will be available at `http://localhost:5173`.
 
 This application is configured for easy deployment on platforms like Render. The `vercel.json` files in the `frontend` and `server` directories are pre-configured for vercel as well. Simply connect your repository to Vercel or Render and configure the environment variables in the project settings.
 
-## 📜 License
+## License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
